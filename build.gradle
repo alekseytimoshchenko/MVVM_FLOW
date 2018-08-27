@@ -42,6 +42,7 @@ ext {
     libraries = [
             supportVersion  : "1.0.0-rc01",
             constraintLayout: "1.1.2",
+            stetho          : "1.5.0"
     ]
 }
 

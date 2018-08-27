@@ -34,11 +34,12 @@ dependencies {
     implementation "androidx.appcompat:appcompat:${libs.supportVersion}"
     implementation "androidx.constraintlayout:constraintlayout:${libs.constraintLayout}"
 
+    //Stetho
+    compile "com.facebook.stetho:stetho:${libs.stetho}"
+
     //test
     testImplementation "junit:junit:${test.junit}"
     androidTestImplementation "androidx.test:runner:${test.runner}"
     implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     androidTestImplementation "androidx.test.espresso:espresso-core:${test.espresso}"
-
-    //добавить Crashlitics, Thimb, LeakCanary
 }
