@@ -47,6 +47,11 @@ dependencies {
         transitive = true
     }
 
+    //RxJava2
+    implementation "io.reactivex.rxjava2:rxjava:${libs.rx2Java}"
+    implementation "io.reactivex.rxjava2:rxandroid:${libs.rx2Android}"
+    implementation "io.reactivex.rxjava2:rxkotlin:${libs.rxKotlinVersion}"
+
     //Timber
     implementation "com.jakewharton.timber:timber:${libs.timber}"
 

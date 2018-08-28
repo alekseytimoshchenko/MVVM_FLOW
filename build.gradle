@@ -42,7 +42,11 @@ ext {
             supportVersion  : "1.0.0-rc01",
             constraintLayout: "1.1.2",
             stetho          : "1.5.0",
-            timber          : "4.7.1"
+            timber          : "4.7.1",
+            rxKotlinVersion : "2.3.0",
+            rxBinding       : "2.1.1",
+            rx2Java         : "2.2.1",
+            rx2Android      : "2.1.0",
     ]
 }
 

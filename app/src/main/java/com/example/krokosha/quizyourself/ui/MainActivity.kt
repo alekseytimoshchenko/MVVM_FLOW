@@ -7,7 +7,6 @@ import com.example.krokosha.quizyourself.R
 import io.fabric.sdk.android.Fabric
 
 /**
- * 3) Leak Canary implementation
  * 4) di configuration
  * 5) fix manifest file
  * */
