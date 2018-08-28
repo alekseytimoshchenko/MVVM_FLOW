@@ -1,10 +1,11 @@
 package com.example.krokosha.quizyourself.ui
 
+import android.content.Context
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.crashlytics.android.Crashlytics
+import com.example.krokosha.quizyourself.App
 import com.example.krokosha.quizyourself.R
-import io.fabric.sdk.android.Fabric
+import javax.inject.Inject
 
 /**
  * 4) di configuration
@@ -13,10 +14,19 @@ import io.fabric.sdk.android.Fabric
 
 class MainActivity: AppCompatActivity()
 {
+    @Inject
+    lateinit var context: Context
+    
     override fun onCreate(savedInstanceState: Bundle?)
     {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        Fabric.with(this, Crashlytics())
+        App.instance.componentHolder.getActivityComponent(javaClass).inject(this@MainActivity)
+    }
+    
+    override fun onDestroy()
+    {
+        super.onDestroy()
+        App.instance.componentHolder.releaseActivityComponent(javaClass)
     }
 }
