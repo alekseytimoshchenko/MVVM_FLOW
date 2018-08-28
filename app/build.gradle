@@ -52,6 +52,10 @@ dependencies {
     implementation "io.reactivex.rxjava2:rxandroid:${libs.rx2Android}"
     implementation "io.reactivex.rxjava2:rxkotlin:${libs.rxKotlinVersion}"
 
+    //Dependency Injection
+    implementation "com.google.dagger:dagger:${libs.daggerVersion}"
+    annotationProcessor "com.google.dagger:dagger-compiler:${libs.daggerVersion}"
+
     //Timber
     implementation "com.jakewharton.timber:timber:${libs.timber}"
 

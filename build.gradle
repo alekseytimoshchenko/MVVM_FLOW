@@ -47,6 +47,7 @@ ext {
             rxBinding       : "2.1.1",
             rx2Java         : "2.2.1",
             rx2Android      : "2.1.0",
+            daggerVersion   : "2.17"
     ]
 }
 
