@@ -8,7 +8,7 @@ import com.example.krokosha.quizyourself.R
 import javax.inject.Inject
 
 /**
- * 6) SingleLiveEvent
+ * 7) Retrofit
  * */
 
 class MainActivity: AppCompatActivity()

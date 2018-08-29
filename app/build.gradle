@@ -59,6 +59,10 @@ dependencies {
     //Timber
     implementation "com.jakewharton.timber:timber:${libs.timber}"
 
+    //Architecture components
+    implementation "androidx.lifecycle:lifecycle-extensions:2.0.0-rc01"
+    annotationProcessor "androidx.lifecycle:lifecycle-compiler:2.0.0-rc01"
+
     //test
     testImplementation "junit:junit:${test.junit}"
     androidTestImplementation "androidx.test:runner:${test.runner}"
