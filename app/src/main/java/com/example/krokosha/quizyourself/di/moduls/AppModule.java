@@ -12,7 +12,7 @@ import com.example.krokosha.quizyourself.di.components.MainActivityComponent;
 import com.example.krokosha.quizyourself.di.scopes.AppScope;
 import com.example.krokosha.quizyourself.di.scopes.BaseBuilder;
 import com.example.krokosha.quizyourself.di.scopes.RetrofitModulesName;
-import com.example.krokosha.quizyourself.ui.MainActivity;
+import com.example.krokosha.quizyourself.ui.main.MainActivity;
 import com.example.krokosha.quizyourself.utils.Constants;
 import com.squareup.moshi.Moshi;
 

@@ -2,7 +2,7 @@ package com.example.krokosha.quizyourself.di.components;
 
 import com.example.krokosha.quizyourself.di.moduls.MainActivityModule;
 import com.example.krokosha.quizyourself.di.scopes.MainActivityScope;
-import com.example.krokosha.quizyourself.ui.MainActivity;
+import com.example.krokosha.quizyourself.ui.main.MainActivity;
 
 import dagger.Subcomponent;
 

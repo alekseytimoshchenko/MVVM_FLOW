@@ -1,31 +1,36 @@
-package com.example.krokosha.quizyourself.ui
+package com.example.krokosha.quizyourself.ui.main
 
-import android.content.Context
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
 import com.example.krokosha.quizyourself.App
 import com.example.krokosha.quizyourself.R
-import com.example.krokosha.quizyourself.data.remote.endpoints.IMovieEndpoint
 import javax.inject.Inject
-
-/**
- * 7) Retrofit
- * 8) ViewModel
- * */
 
 class MainActivity: AppCompatActivity()
 {
     @Inject
-    lateinit var context: Context
+    lateinit var factory: MainActivityFactory
     
-    @Inject
-    lateinit var apiInterface: IMovieEndpoint
+    private lateinit var model: MainActivityViewModel
     
     override fun onCreate(savedInstanceState: Bundle?)
     {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         App.instance.componentHolder.getActivityComponent(javaClass).inject(this@MainActivity)
+        model = ViewModelProviders.of(this, factory).get(MainActivityViewModel::class.java)
+        
+        subscribe()
+        model.requestData()
+    }
+    
+    private fun subscribe()
+    {
+        model.contect.observe(this, Observer {
+            print(it.toString())
+        })
     }
     
     override fun onDestroy()
