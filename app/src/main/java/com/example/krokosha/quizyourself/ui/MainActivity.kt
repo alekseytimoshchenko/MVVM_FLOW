@@ -8,8 +8,7 @@ import com.example.krokosha.quizyourself.R
 import javax.inject.Inject
 
 /**
- * 4) di configuration
- * 5) fix manifest file
+ * 6) SingleLiveEvent
  * */
 
 class MainActivity: AppCompatActivity()
