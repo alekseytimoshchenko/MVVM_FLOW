@@ -50,7 +50,6 @@ dependencies {
     //RxJava2
     implementation "io.reactivex.rxjava2:rxjava:${libs.rx2Java}"
     implementation "io.reactivex.rxjava2:rxandroid:${libs.rx2Android}"
-    implementation "io.reactivex.rxjava2:rxkotlin:${libs.rxKotlinVersion}"
 
     //Dependency Injection
     implementation "com.google.dagger:dagger:${libs.daggerVersion}"
@@ -62,6 +61,12 @@ dependencies {
     //Architecture components
     implementation "androidx.lifecycle:lifecycle-extensions:2.0.0-rc01"
     annotationProcessor "androidx.lifecycle:lifecycle-compiler:2.0.0-rc01"
+
+    // Retrofit 2
+    implementation "com.squareup.retrofit2:retrofit:${libs.retrofit2}"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:${libs.retrofit2}"
+    implementation "com.squareup.retrofit2:converter-moshi:${libs.retrofit2}"
+    implementation "com.squareup.okhttp3:logging-interceptor:${libs.retrofitInterseptor}"
 
     //test
     testImplementation "junit:junit:${test.junit}"
