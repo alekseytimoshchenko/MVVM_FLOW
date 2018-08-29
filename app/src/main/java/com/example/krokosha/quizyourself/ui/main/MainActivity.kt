@@ -8,6 +8,10 @@ import com.example.krokosha.quizyourself.App
 import com.example.krokosha.quizyourself.R
 import javax.inject.Inject
 
+/**
+ * Implement navigation
+ * */
+
 class MainActivity: AppCompatActivity()
 {
     @Inject
