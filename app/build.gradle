@@ -30,6 +30,18 @@ android {
             buildConfigField 'String', 'BASE_URL', '"https://api.themoviedb.org/3/"'
         }
     }
+
+    //https://medium.com/@shishir_13/layouts-in-different-folders-in-android-app-98468bd507c7
+    sourceSets {
+        main {
+            res.srcDirs =
+                    [
+                            file("src/main/res/layouts/").listFiles(),
+                            'src/main/res/layouts',
+                            'src/main/res'
+                    ]
+        }
+    }
 }
 
 repositories {
