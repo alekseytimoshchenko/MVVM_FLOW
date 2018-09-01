@@ -3,7 +3,6 @@ package com.example.krokosha.quizyourself
 import android.app.Application
 import com.crashlytics.android.Crashlytics
 import com.example.krokosha.quizyourself.di.ComponentsHolder
-import com.example.krokosha.quizyourself.utils.CrashReportingTree
 import com.facebook.stetho.Stetho
 import io.fabric.sdk.android.Fabric
 import timber.log.Timber

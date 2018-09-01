@@ -51,6 +51,7 @@ ext {
             components         : "1.1.1",
             retrofit2          : "2.4.0",
             retrofitInterseptor: "3.11.0",
+            matirial           : "1.0.0-rc01",
 
     ]
 }

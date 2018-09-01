@@ -55,6 +55,9 @@ dependencies {
     implementation "androidx.appcompat:appcompat:${libs.supportVersion}"
     implementation "androidx.constraintlayout:constraintlayout:${libs.constraintLayout}"
 
+    //Material
+    implementation "com.google.android.material:material:${libs.matirial}"
+
     //Stetho
     implementation "com.facebook.stetho:stetho:${libs.stetho}"
 
