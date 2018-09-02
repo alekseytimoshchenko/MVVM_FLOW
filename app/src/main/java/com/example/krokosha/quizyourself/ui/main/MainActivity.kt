@@ -6,8 +6,12 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.widget.ContentLoadingProgressBar
 import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
 import com.example.krokosha.quizyourself.R
-import javax.inject.Inject
+import com.example.krokosha.quizyourself.data.remote.MainRestController
+import com.example.krokosha.quizyourself.data.repo.MainActivityRepo
+import com.example.krokosha.quizyourself.utils.DataMapper
+import com.example.krokosha.quizyourself.utils.Validator
 
 
 /**
@@ -20,8 +24,7 @@ class MainActivity: AppCompatActivity()
     private lateinit var tvPassword: TextView
     private lateinit var pb: ContentLoadingProgressBar
     
-    @Inject
-    lateinit var factory: MainActivityFactory
+//    lateinit var factory: MainActivityFactory
     
     private lateinit var viewModel: MainActivityViewModel
     
@@ -32,6 +35,14 @@ class MainActivity: AppCompatActivity()
         
         initViews()
         setListeners()
+        
+        val api = MainRestController()
+        val repo = MainActivityRepo(api)
+        val validator = Validator()
+        val mapper = DataMapper()
+        val factory = MainActivityFactory(repo, validator, mapper)
+        
+        viewModel = ViewModelProviders.of(this, factory).get(MainActivityViewModel::class.java)
         
         observeLiveData()
     }

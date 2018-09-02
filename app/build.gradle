@@ -58,34 +58,13 @@ dependencies {
     //Material
     implementation "com.google.android.material:material:${libs.matirial}"
 
-    //Stetho
-    implementation "com.facebook.stetho:stetho:${libs.stetho}"
-
-    //Crashlitics
-    implementation('com.crashlytics.sdk.android:crashlytics:2.9.5@aar') {
-        transitive = true
-    }
-
-    //RxJava2
-    implementation "io.reactivex.rxjava2:rxjava:${libs.rx2Java}"
-    implementation "io.reactivex.rxjava2:rxandroid:${libs.rx2Android}"
-
     //Dependency Injection
-    implementation "com.google.dagger:dagger:${libs.daggerVersion}"
-    annotationProcessor "com.google.dagger:dagger-compiler:${libs.daggerVersion}"
-
-    //Timber
-    implementation "com.jakewharton.timber:timber:${libs.timber}"
+//    implementation "com.google.dagger:dagger:${libs.daggerVersion}"
+//    annotationProcessor "com.google.dagger:dagger-compiler:${libs.daggerVersion}"
 
     //Architecture components
     implementation "androidx.lifecycle:lifecycle-extensions:2.0.0-rc01"
     annotationProcessor "androidx.lifecycle:lifecycle-compiler:2.0.0-rc01"
-
-    // Retrofit 2
-    implementation "com.squareup.retrofit2:retrofit:${libs.retrofit2}"
-    implementation "com.squareup.retrofit2:adapter-rxjava2:${libs.retrofit2}"
-    implementation "com.squareup.retrofit2:converter-moshi:${libs.retrofit2}"
-    implementation "com.squareup.okhttp3:logging-interceptor:${libs.retrofitInterseptor}"
 
     //test
     testImplementation "junit:junit:${test.junit}"

@@ -12,7 +12,9 @@ import com.example.krokosha.quizyourself.utils.DataMapper
 import com.example.krokosha.quizyourself.utils.LoadingStatus
 import com.example.krokosha.quizyourself.utils.Validator
 
-class MainActivityViewModel(private val repo: MainActivityRepo, private val validator: Validator, private val mapper: DataMapper): ViewModel()
+class MainActivityViewModel(private val repo: MainActivityRepo,
+                            private val validator: Validator,
+                            private val mapper: DataMapper): ViewModel()
 {
     private val requestLiveData = MutableLiveData<LoginRequest>()
     
