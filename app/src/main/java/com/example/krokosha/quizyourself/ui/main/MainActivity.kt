@@ -1,6 +1,7 @@
 package com.example.krokosha.quizyourself.ui.main
 
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
@@ -11,7 +12,9 @@ import com.example.krokosha.quizyourself.R
 import com.example.krokosha.quizyourself.data.remote.MainRestController
 import com.example.krokosha.quizyourself.data.repo.MainActivityRepo
 import com.example.krokosha.quizyourself.utils.DataMapper
+import com.example.krokosha.quizyourself.utils.LoadingStatus
 import com.example.krokosha.quizyourself.utils.Validator
+import com.google.android.material.snackbar.Snackbar
 
 
 /**
@@ -50,7 +53,15 @@ class MainActivity: AppCompatActivity()
     private fun observeLiveData()
     {
         viewModel.loadingStatus.observe(this, Observer {
-            //Loading status presentation
+            when(it){
+                LoadingStatus.LOADING -> pb.show()
+                LoadingStatus.SUCCESS -> pb.hide()
+                LoadingStatus.ERROR -> {
+                    pb.hide()
+                    Snackbar.make(pb, "Replace with your own action", Snackbar.LENGTH_LONG).setAction("Action", null).show()
+                }
+                else -> Log.e("TAG", "Unexpected case")
+            }
         })
         
         viewModel.userLiveData.observe(this, Observer {
