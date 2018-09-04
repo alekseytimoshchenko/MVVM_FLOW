@@ -4,20 +4,20 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProviders
 import com.example.krokosha.quizyourself.R
-import com.example.krokosha.quizyourself.ui.main.MainActivityFactory
-import com.example.krokosha.quizyourself.ui.main.MainActivityViewModel
+import com.example.krokosha.quizyourself.ui.main.LoginFactory
+import com.example.krokosha.quizyourself.ui.main.LoginViewModel
 
 class MainActivityy: AppCompatActivity()
 {
-    lateinit var factory: MainActivityFactory
+    lateinit var factory: LoginFactory
     
-    private lateinit var model: MainActivityViewModel
+    private lateinit var model: LoginViewModel
     
     override fun onCreate(savedInstanceState: Bundle?)
     {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        model = ViewModelProviders.of(this, factory).get(MainActivityViewModel::class.java)
+        setContentView(R.layout.activity_login)
+        model = ViewModelProviders.of(this, factory).get(LoginViewModel::class.java)
         
         subscribe()
     }

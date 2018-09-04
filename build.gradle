@@ -8,9 +8,8 @@ buildscript {
         maven { url 'https://maven.fabric.io/public' }
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.3.0-alpha06'
+        classpath 'com.android.tools.build:gradle:3.3.0-alpha08'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-        classpath 'io.fabric.tools:gradle:1.25.4'
     }
 }
 
@@ -39,11 +38,8 @@ ext {
 
 ext {
     libraries = [
-            supportVersion     : "1.0.0-rc02",
+            appcompat     : "1.0.0-rc02",
             constraintLayout   : "1.1.2",
-            stetho             : "1.5.0",
-            timber             : "4.7.1",
-            rxKotlinVersion    : "2.3.0",
             rxBinding          : "2.1.1",
             rx2Java            : "2.2.1",
             rx2Android         : "2.1.0",
@@ -51,7 +47,7 @@ ext {
             components         : "1.1.1",
             retrofit2          : "2.4.0",
             retrofitInterseptor: "3.11.0",
-            matirial           : "1.0.0-rc01",
+            lifecycle: "2.0.0-rc01",
 
     ]
 }

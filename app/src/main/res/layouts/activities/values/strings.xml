@@ -1,0 +1,13 @@
+<resources>
+    <string name="user_name">User name</string>
+    <string name="password">Password</string>
+    <string name="sing_in">Sing in</string>
+
+    <!--Errors-->
+    <string name="something_went_wrong">Something went wrong</string>
+    <string name="unexpected_case">Unexpected case</string>
+
+    <!--Notifications-->
+    <string name="user_was_saved">User was saved</string>
+
+</resources>

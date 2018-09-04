@@ -2,7 +2,7 @@ package com.example.krokosha.quizyourself.data.repo
 
 import com.example.krokosha.quizyourself.data.remote.LoginRequest
 import com.example.krokosha.quizyourself.data.remote.LoginResponse
-import com.example.krokosha.quizyourself.data.remote.MainRestController
+import com.example.krokosha.quizyourself.data.remote.LoginRestController
 
 /**
  * Here you can provide you repository implementation with
@@ -11,7 +11,7 @@ import com.example.krokosha.quizyourself.data.remote.MainRestController
  *
  * NOTE: that all this actions have to be executed on background thread(up to your decision how)
  * */
-class MainActivityRepo(private val restController: MainRestController)
+class Repo(private val restController: LoginRestController)
 {
     fun requestData(loginRequest: LoginRequest): LoginResponse
     {

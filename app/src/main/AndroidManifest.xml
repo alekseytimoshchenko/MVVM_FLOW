@@ -12,41 +12,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.main.MainActivity">
-            <intent-filter android:autoVerify="true">
-                <action android:name="android.intent.action.VIEW"/>
-
-                <category android:name="android.intent.category.DEFAULT"/>
-                <category android:name="android.intent.category.BROWSABLE"/>
-
-                <data
-                    android:host="alextimowenko.wixsite.com"
-                    android:pathPattern="/.*"
-                    android:scheme="http"/>
-            </intent-filter>
-
-            <intent-filter android:autoVerify="true">
-                <action android:name="android.intent.action.VIEW"/>
-
-                <category android:name="android.intent.category.DEFAULT"/>
-                <category android:name="android.intent.category.BROWSABLE"/>
-
-                <data
-                    android:host="alextimowenko.wixsite.com"
-                    android:pathPattern="/.*"
-                    android:scheme="https"/>
-
-            </intent-filter>
-
+        <activity
+            android:name=".ui.main.LoginActivity"
+            android:noHistory="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <meta-data
-            android:name="io.fabric.ApiKey"
-            android:value="facfc0d083e73e78c2b5090ef2fefc42a7ffdc83"/>
+        <activity android:name=".ui.nextScreen.NextActivity"/>
     </application>
 
 </manifest>

@@ -1,7 +1,6 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
-apply plugin: 'io.fabric'
 
 def libs = rootProject.ext.libraries
 def config = rootProject.ext.configuration
@@ -9,7 +8,6 @@ def test = rootProject.ext.test
 
 android {
     compileSdkVersion config.compileVersion
-    buildToolsVersion config.buildToolsVersion
 
     defaultConfig {
         applicationId config.applicationId
@@ -42,6 +40,7 @@ android {
                     ]
         }
     }
+    buildToolsVersion '28.0.2'
 }
 
 repositories {
@@ -52,19 +51,20 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
     //android
-    implementation "androidx.appcompat:appcompat:${libs.supportVersion}"
+    implementation "androidx.appcompat:appcompat:${libs.appcompat}"
     implementation "androidx.constraintlayout:constraintlayout:${libs.constraintLayout}"
-
-    //Material
-    implementation "com.google.android.material:material:${libs.matirial}"
 
     //Dependency Injection
 //    implementation "com.google.dagger:dagger:${libs.daggerVersion}"
 //    annotationProcessor "com.google.dagger:dagger-compiler:${libs.daggerVersion}"
 
+    //RxJava2
+    implementation "io.reactivex.rxjava2:rxjava:${libs.rx2Java}"
+    implementation "io.reactivex.rxjava2:rxandroid:${libs.rx2Android}"
+
     //Architecture components
-    implementation "androidx.lifecycle:lifecycle-extensions:2.0.0-rc01"
-    annotationProcessor "androidx.lifecycle:lifecycle-compiler:2.0.0-rc01"
+    implementation "androidx.lifecycle:lifecycle-extensions:${libs.lifecycle}"
+    annotationProcessor "androidx.lifecycle:lifecycle-compiler:${libs.lifecycle}"
 
     //test
     testImplementation "junit:junit:${test.junit}"

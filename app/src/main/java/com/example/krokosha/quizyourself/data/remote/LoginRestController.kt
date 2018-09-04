@@ -2,13 +2,12 @@ package com.example.krokosha.quizyourself.data.remote
 
 import com.example.krokosha.quizyourself.data.model.User
 
-class MainRestController
+class LoginRestController
 {
     fun getUser(loginRequest: LoginRequest): LoginResponse
     {
         //To simulate downloading
-        Thread.sleep(2500)
-        return LoginResponse(User(""), false)
+        return LoginResponse(User("Joe"), false)
     }
 }
 
