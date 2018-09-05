@@ -9,21 +9,23 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.widget.ContentLoadingProgressBar
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import com.example.krokosha.quizyourself.App
 import com.example.krokosha.quizyourself.R
-import com.example.krokosha.quizyourself.data.remote.LoginRestController
-import com.example.krokosha.quizyourself.data.repo.Repo
 import com.example.krokosha.quizyourself.ui.nextScreen.NextActivity
-import com.example.krokosha.quizyourself.utils.DataMapper
 import com.example.krokosha.quizyourself.utils.LoadingStatus
-import com.example.krokosha.quizyourself.utils.Validator
+import javax.inject.Inject
 
+/**
+ * Make di in kotlin and make in simple
+ * */
 class LoginActivity: AppCompatActivity()
 {
     private lateinit var tvUserName: TextView
     private lateinit var tvPassword: TextView
     private lateinit var pb: ContentLoadingProgressBar
     
-//    lateinit var factory: LoginFactory
+    @Inject
+    lateinit var factory: LoginFactory
     
     private lateinit var viewModel: LoginViewModel
     
@@ -31,15 +33,10 @@ class LoginActivity: AppCompatActivity()
     {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
+        App.instance.componentHolder.getBaseComponent(javaClass).inject(this)
         
         initViews()
         setListeners()
-        
-        val api = LoginRestController()
-        val repo = Repo(api)
-        val validator = Validator()
-        val mapper = DataMapper()
-        val factory = LoginFactory(repo, validator, mapper)
         
         viewModel = ViewModelProviders.of(this, factory).get(LoginViewModel::class.java)
         

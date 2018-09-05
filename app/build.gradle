@@ -55,8 +55,8 @@ dependencies {
     implementation "androidx.constraintlayout:constraintlayout:${libs.constraintLayout}"
 
     //Dependency Injection
-//    implementation "com.google.dagger:dagger:${libs.daggerVersion}"
-//    annotationProcessor "com.google.dagger:dagger-compiler:${libs.daggerVersion}"
+    implementation "com.google.dagger:dagger:${libs.daggerVersion}"
+    annotationProcessor "com.google.dagger:dagger-compiler:${libs.daggerVersion}"
 
     //RxJava2
     implementation "io.reactivex.rxjava2:rxjava:${libs.rx2Java}"
