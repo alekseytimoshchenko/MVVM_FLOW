@@ -20,10 +20,5 @@ class App: Application()
     {
         super.onCreate()
         instance = this@App
-        initTimberWithCrashlitics()
-    }
-    
-    private fun initTimberWithCrashlitics()
-    {
     }
 }
