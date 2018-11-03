@@ -13,6 +13,8 @@ import com.example.krokosha.quizyourself.data.remote.LoginRestController
  * */
 class Repo(private val restController: LoginRestController)
 {
+    
+    
     fun requestData(loginRequest: LoginRequest): LoginResponse
     {
         return restController.getUser(loginRequest)
