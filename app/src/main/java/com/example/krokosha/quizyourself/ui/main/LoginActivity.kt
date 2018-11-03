@@ -79,4 +79,10 @@ class LoginActivity: AppCompatActivity()
             viewModel.executeLogin(tvUserName.text.toString(), tvPassword.text.toString())
         }
     }
+    
+    override fun onDestroy()
+    {
+        super.onDestroy()
+        App.instance.componentHolder.releaseBaseComponent(LoginActivity::class.java)
+    }
 }
