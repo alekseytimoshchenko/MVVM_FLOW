@@ -5,8 +5,6 @@ import com.example.krokosha.quizyourself.di.ComponentsHolder
 
 /**
  * Created with care by Alexey.T on 27/08/2018.
- *
- * TODO: Add a class header comment!
  */
 class App: Application()
 {

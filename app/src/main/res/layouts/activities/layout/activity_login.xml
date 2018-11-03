@@ -8,37 +8,37 @@
     tools:context=".ui.main.LoginActivity">
 
     <androidx.appcompat.widget.AppCompatEditText
-        android:id="@+id/et_main_act_user_name"
+        android:id="@+id/et_login_act_user_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:hint="@string/user_name"
-        app:layout_constraintBottom_toTopOf="@+id/et_main_act_password"
+        app:layout_constraintBottom_toTopOf="@+id/et_login_act_password"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
 
     <androidx.appcompat.widget.AppCompatEditText
-        android:id="@+id/et_main_act_password"
+        android:id="@+id/et_login_act_password"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:hint="@string/password"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_main_act_user_name"/>
+        app:layout_constraintTop_toBottomOf="@+id/et_login_act_user_name"/>
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btn_main_act_sing_in"
+        android:id="@+id/btn_login_act_sing_in"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/sing_in"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_main_act_password"/>
+        app:layout_constraintTop_toBottomOf="@+id/et_login_act_password"/>
 
     <androidx.core.widget.ContentLoadingProgressBar
-        android:id="@+id/pb_main_act"
+        android:id="@+id/pb_login_act"
         style="?android:attr/progressBarStyleLarge"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

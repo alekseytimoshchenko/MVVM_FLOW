@@ -8,7 +8,6 @@ import com.example.krokosha.quizyourself.R
 
 class NextActivity: AppCompatActivity()
 {
-    
     companion object
     {
         fun newInstance(iC: Context) = Intent(iC, NextActivity::class.java)

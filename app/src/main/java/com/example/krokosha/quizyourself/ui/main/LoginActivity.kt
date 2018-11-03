@@ -15,9 +15,6 @@ import com.example.krokosha.quizyourself.ui.nextScreen.NextActivity
 import com.example.krokosha.quizyourself.utils.LoadingStatus
 import javax.inject.Inject
 
-/**
- * Make di in kotlin and make in simple
- * */
 class LoginActivity: AppCompatActivity()
 {
     private lateinit var tvUserName: TextView
@@ -68,14 +65,14 @@ class LoginActivity: AppCompatActivity()
     
     private fun initViews()
     {
-        tvUserName = findViewById(R.id.et_main_act_user_name)
-        tvPassword = findViewById(R.id.et_main_act_password)
-        pb = findViewById(R.id.pb_main_act)
+        tvUserName = findViewById(R.id.et_login_act_user_name)
+        tvPassword = findViewById(R.id.et_login_act_password)
+        pb = findViewById(R.id.pb_login_act)
     }
     
     private fun setListeners()
     {
-        findViewById<Button>(R.id.btn_main_act_sing_in).setOnClickListener {
+        findViewById<Button>(R.id.btn_login_act_sing_in).setOnClickListener {
             viewModel.executeLogin(tvUserName.text.toString(), tvPassword.text.toString())
         }
     }
