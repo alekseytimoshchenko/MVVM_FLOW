@@ -44,7 +44,8 @@ class LoginViewModel(private val repo: Repo, private val validator: Validator, p
                 override fun onPreExecute()
                 {
                     super.onPreExecute()
-                    _loadingStatus!!.value = LoadingStatus.LOADING
+    
+                    _loadingStatus?.value = LoadingStatus.LOADING
                 }
                 
                 override fun doInBackground(vararg p0: LoginRequest): User
@@ -57,16 +58,17 @@ class LoginViewModel(private val repo: Repo, private val validator: Validator, p
                 override fun onPostExecute(result: User)
                 {
                     super.onPostExecute(result)
-                    _userLiveData!!.postValue(result)
-                    _loadingStatus!!.postValue(LoadingStatus.SUCCESS)
-                    _openNextScreen!!.postValue(true)
+    
+                    _userLiveData?.postValue(result)
+                    _loadingStatus?.postValue(LoadingStatus.SUCCESS)
+                    _openNextScreen?.postValue(true)
                 }
                 
             }.execute(request)
         }
         else
         {
-            _loadingStatus!!.value = LoadingStatus.ERROR
+            _loadingStatus?.value = LoadingStatus.ERROR
         }
     }
     
