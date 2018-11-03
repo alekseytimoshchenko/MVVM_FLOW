@@ -1,5 +1,7 @@
 package com.example.krokosha.quizyourself.ui.main
 
+import android.annotation.SuppressLint
+import android.os.AsyncTask
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -9,18 +11,12 @@ import com.example.krokosha.quizyourself.data.repo.Repo
 import com.example.krokosha.quizyourself.utils.DataMapper
 import com.example.krokosha.quizyourself.utils.LoadingStatus
 import com.example.krokosha.quizyourself.utils.Validator
-import io.reactivex.Observable
-import io.reactivex.disposables.CompositeDisposable
-import io.reactivex.schedulers.Schedulers
-import java.util.concurrent.TimeUnit
 
 class LoginViewModel(private val repo: Repo, private val validator: Validator, private val mapper: DataMapper): ViewModel()
 {
     private var _loadingStatus: MutableLiveData<LoadingStatus>? = MutableLiveData()
     private var _userLiveData: MutableLiveData<User>? = MutableLiveData()
     private var _openNextScreen: MutableLiveData<Boolean>? = MutableLiveData()
-    
-    private var disposable: CompositeDisposable? = CompositeDisposable()
     
     //You need to observe this LiveData to get User from the response
     val userLiveData: LiveData<User>
@@ -34,23 +30,39 @@ class LoginViewModel(private val repo: Repo, private val validator: Validator, p
     val openNextScreen: LiveData<Boolean>
         get() = _openNextScreen!!
     
+    private var async: AsyncTask<LoginRequest, Void, User>? = null
+    
+    @SuppressLint("StaticFieldLeak")
     fun executeLogin(username: String?, password: String?)
     {
         val request = LoginRequest(username.orEmpty(), password.orEmpty())
         
         if(validator.isValid(request))
         {
-            disposable?.add(Observable.just(LoginRequest(username.orEmpty(), password.orEmpty())) //
-                    .doOnNext { } //
-                    .doOnNext { _loadingStatus!!.value = LoadingStatus.LOADING } //
-                    .delay(2500, TimeUnit.MILLISECONDS) //
-                    .observeOn(Schedulers.io()) //
-                    .map { repo.requestData(it) } //
-                    .map { mapper.convert(it) } //
-                    .doOnNext { _userLiveData!!.postValue(it) } //
-                    .doOnNext { _loadingStatus!!.postValue(LoadingStatus.SUCCESS) } //
-                    .doOnNext { _openNextScreen!!.postValue(true) } //
-                    .subscribe())
+            async = object: AsyncTask<LoginRequest, Void, User>()
+            {
+                override fun onPreExecute()
+                {
+                    super.onPreExecute()
+                    _loadingStatus!!.value = LoadingStatus.LOADING
+                }
+                
+                override fun doInBackground(vararg p0: LoginRequest): User
+                {
+                    Thread.sleep(2500) //show loading
+                    
+                    return mapper.convert(repo.requestData(p0[0]))
+                }
+                
+                override fun onPostExecute(result: User)
+                {
+                    super.onPostExecute(result)
+                    _userLiveData!!.postValue(result)
+                    _loadingStatus!!.postValue(LoadingStatus.SUCCESS)
+                    _openNextScreen!!.postValue(true)
+                }
+                
+            }.execute(request)
         }
         else
         {
@@ -62,14 +74,15 @@ class LoginViewModel(private val repo: Repo, private val validator: Validator, p
     {
         super.onCleared()
         
-        disposable?.let {
-            if(it.isDisposed) it.dispose()
-        }
-        
         _loadingStatus = null
         _userLiveData = null
         _openNextScreen = null
         
-        disposable = null
+        async?.let {
+            if(it.isCancelled)
+            {
+                it.cancel(true)
+            }
+        }.also { async = null }
     }
 }
