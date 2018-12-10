@@ -1,5 +1,8 @@
 # QuizYourself
 
+link to article medium
+https://medium.com/@alex.timowenko/mvvm-flow-example-with-kotlin-a8c823e839ec
+
 #### This repository contains a detailed app that :
 - written in Java,
 
