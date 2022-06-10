@@ -1,6 +1,7 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 
 def libs = rootProject.ext.libraries
 def config = rootProject.ext.configuration
@@ -40,7 +41,7 @@ android {
                     ]
         }
     }
-    buildToolsVersion '28.0.2'
+    buildToolsVersion '30.0.3'
 }
 
 repositories {
@@ -55,8 +56,11 @@ dependencies {
     implementation "androidx.constraintlayout:constraintlayout:${libs.constraintLayout}"
 
     //Dependency Injection
-    implementation "com.google.dagger:dagger:${libs.daggerVersion}"
-    annotationProcessor "com.google.dagger:dagger-compiler:${libs.daggerVersion}"
+    api "com.google.dagger:dagger:2.35.1"
+    annotationProcessor "com.google.dagger:dagger-compiler:2.28.3"
+    api "com.google.dagger:dagger-android:2.35.1"
+    api "com.google.dagger:dagger-android-support:2.28.3" // if you use the support libraries
+    annotationProcessor "com.google.dagger:dagger-android-processor:2.28.3"
 
     //Architecture components
     implementation "androidx.lifecycle:lifecycle-extensions:${libs.lifecycle}"
